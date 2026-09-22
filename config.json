@@ -1,0 +1,10 @@
+(
+"product": "i=pad or tablet suitable for digital drawing"
+"brand": "Apple"
+"price limit": 1700,
+"currency": "SGD"
+"vendorCountry": "Singapore",
+"ageGroup": "adult"
+"characteristics": ["lightweight", "at least 20 hour battery life", "USB-C"],
+"maxResultsPerRun": 10
+)
