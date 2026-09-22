@@ -1,0 +1,9 @@
+{
+"name": "Deal Scout",
+"short_name": "Deals",
+"start_url": ".",
+"display": "standalone",
+"background_color": "#f5f5f7",
+"theme_color": "#0a7d32",
+"icons": [{ "src": "https://cdn-icons-png.flaticon.com/512/3081/3081559.png", "sizes": "512x512", "type": "image/png" }]
+}
