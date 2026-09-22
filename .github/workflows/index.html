@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deal Scout</title>
+<link rel="manifest" href="manifest.json">
+<style>
+body { font-family: -apple-system, sans-serif; background: #f5f5f7; margin: 0; padding: 16px; }
+h1 { font-size: 22px; }
+.day { margin-bottom: 24px; }
+.day h2 { font-size: 15px; color: #666; }
+.card { background: white; border-radius: 12px; padding: 14px; margin-bottom: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.card h3 { margin: 0 0 6px; font-size: 16px; }
+.price { font-weight: bold; color: #0a7d32; }
+.card p { font-size: 13px; color: #555; margin: 6px 0; }
+.card a { font-size: 13px; }
+</style>
+</head>
+<body>
+<h1> Deal Scout Findings</h1>
+<div id="output">Loading...</div>
+<script>
+const REPO_RAW_URL = "https://raw.githubusercontent.com/sugarcanee22/deal-scout/main/results.json";
+fetch(REPO_RAW_URL + "?t=" + Date.now())
+.then(r => r.json())
+.then(data => {
+const output = document.getElementById("output");
+if (!data.length) { output.innerHTML = "<p>No results yet — check back after the first scan.</p>"; return; }
+output.innerHTML = data.slice().reverse().map(day => `
+<div class="day">
+<h2>${day.date}</h2>
+${day.deals.length ? day.deals.map(d => `
+<div class="card">
+<h3>${d.title}</h3>
+<p class="price">${d.price} ${d.currency} — ${d.vendor}</p>
+<p>${d.whyGoodDeal}</p>
+<a href="${d.url}" target="_blank">View deal →</a>
+</div>
+`).join("") : "<p>No matching deals found this run.</p>"}
+</div>
+`).join("");
+})
+.catch(() => document.getElementById("output").innerHTML = "<p>Couldn't load results yet.</p>");
+</script>
+</body>
+</html>
