@@ -17,7 +17,7 @@ run: node scout.js
 env:
 GEMINI_API_KEY: ${{ secrets.GEMINIAPIKEY }}
 run: |
-git config user.name "sugarcanee22"
+git config user.name "deal-scout2"
 git config user.email "bot@deal-scout"
 git add results.json
 git commit -m "Daily deal scan: $(date +'%Y-%m-%d')" || echo "No changes"
