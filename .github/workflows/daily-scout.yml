@@ -20,6 +20,6 @@ run: |
       git config user.name "Deal Scout Bot"
       git config user.email "bot@deal-scout"
       git add results.json
-git commit -m "Daily deal scan: $(date +'%Y-%m-%d')" || echo "No changes" git push^ ^^^^concurrency: 
+git commit -m "Daily deal scan: $(date +'%Y-%m-%d')" || echo "No changes" git push concurrency: 
 
       
